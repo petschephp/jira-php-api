@@ -70,15 +70,10 @@ class HttpRequest
      */
     public function sendRequest($url, $method = 'GET')
     {
-
         if (!$this->isAvailableMethod($method)) {
             return 'The method you passed is not allowed';
         }
 
-        // Create the request URL
-        $requestUrl = $url;
-
-        echo $url;
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
@@ -93,7 +88,7 @@ class HttpRequest
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
         //curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
 
-        curl_setopt($ch, CURLOPT_URL, $requestUrl);
+        curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_USERPWD, $this->username . ":" . $this->password);
 
 
@@ -110,9 +105,5 @@ class HttpRequest
 
             return $result;
         }
-
-
     }
 }
-
-//
