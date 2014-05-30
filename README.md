@@ -1,3 +1,6 @@
+This is a PHP Library used to work with the Jira API. It's in the very early stages of development and should not be used in a production environment <br /><br />
+
+
 **Example of how to create a JQL Statement**
 
 `$jql = new Jql();`
